@@ -21,9 +21,11 @@ for(var i = 0; i < calculate.length; i++){
     if (element.target.innerText === '=') {
         inputValue.innerText = eval(inputValue.innerText);
     } else if (element.target.innerText === 'AC') {
-      inputValue.innerText = "";
+      inputValue.innerText = 0;
     } else if (element.target.innerText === 'DEL') {
-      inputValue.innerText = inputValue.substring(0, inputValue.length-1);
+        if (inputValue.innerText.length > 0) { 
+            inputValue.innerText = inputValue.innerText.slice(0, -1);
+        }
     } else {
       inputValue.innerText += element.target.innerHTML;
     }
